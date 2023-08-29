@@ -94,7 +94,7 @@ function SongList() {
       releaseDate: "1991-11-13"
     },
     {
-      name: "Main name / Once Upon a Dream / Prologue",
+      name: "Once Upon a Dream",
       coverArt: "src/assets/images/Once_upon_a_dream.jpg",
       length: "2:46",
       releaseDate: "1959-01-29"
@@ -157,12 +157,13 @@ function SongList() {
 
   return (
   	<div>
-      <ul className="song-list">
+      <ul className="songList">
         {songsData.map(song => {
           return (
-            <li className="song-item">
+            <li className="songItem">
               <h2>{song.name}</h2>
               <img className="coverArt" src={song.coverArt} alt={`Cover art for this song: ${song.name}`} />
+             
               <p>Release Date: {song.releaseDate} </p>
               <LikeButton/>
               <ReviewForm/>
@@ -246,6 +247,7 @@ function App() {
         musicType='Sountrack'
         introductionParagraph="Now That's What I Call Disney Princess (often shortened to Now Disney Princess) is a Disney Princess album in the Now That's What I Call Music! series. The album was released on October 28, 2013 in the United Kingdom."
         />
+        
         <SongList/>
       </div>
     </>
