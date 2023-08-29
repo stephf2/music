@@ -1,6 +1,4 @@
 import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 
 
@@ -8,12 +6,18 @@ import './App.css'
 function AlbumInfo(info) {
   const {name, musicType, introductionParagraph, coverArt} = info
 
+  const [showSongList, setSongList] = useState(false)
+  const handleAlbumClick = () => {
+    setSongList(!showSongList)
+  }
+
   return (
     <div>
       <h1>{name}</h1>
-      <img className="coverArtAlbum" src={coverArt} alt={`Cover art for album`} />
+      <img className="coverArtAlbum" src={coverArt} alt={`Cover art for album`} onClick={handleAlbumClick}/>
       <h4>Music Type: {musicType}</h4>
       <p>{introductionParagraph}</p>
+      {showSongList && <SongList />}
     </div>
   )
 }
@@ -247,8 +251,7 @@ function App() {
         musicType='Sountrack'
         introductionParagraph="Now That's What I Call Disney Princess (often shortened to Now Disney Princess) is a Disney Princess album in the Now That's What I Call Music! series. The album was released on October 28, 2013 in the United Kingdom."
         />
-        
-        <SongList/>
+
       </div>
     </>
   )
